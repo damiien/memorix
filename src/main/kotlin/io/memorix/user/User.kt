@@ -9,12 +9,6 @@ class User(
     id: EntityID<UUID>,
 ) : UUIDEntity(id) {
 
-    constructor(id: EntityID<UUID>, email: String, name: String, password: String) : this(id) {
-        this.email = email
-        this.name = name
-        this.password = password
-    }
-
     companion object : UUIDEntityClass<User>(UserTable)
 
     var email by UserTable.email
