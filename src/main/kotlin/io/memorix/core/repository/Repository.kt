@@ -1,12 +1,13 @@
 package io.memorix.core.repository;
 
-import org.jetbrains.exposed.dao.Entity
-import org.jetbrains.exposed.sql.SizedIterable
+import io.memorix.core.entity.Entity
 
-abstract class Repository<E: Entity<ID>, ID: Comparable<ID>> : IRepository<E, ID> {
+abstract class Repository<E: Entity<E, ID>, ID> : IRepository<E, ID> {
 
-    abstract override fun findAll(limit: Int): SizedIterable<E>
+    abstract override fun findAll(limit: Int): List<E>
 
     abstract override fun findById(id: ID): E?
+
+    abstract override fun create(entity: E): E?
 
 }
