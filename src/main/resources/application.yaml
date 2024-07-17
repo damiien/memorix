@@ -2,10 +2,7 @@ ktor:
   deployment:
     port: 8080
     host: 0.0.0.0
-  application:
-    modules:
-      - io.memorix.ApplicationModule.module
-      - io.memorix.user.UserModule.module
+
 database:
   host: localhost
   port: 5432
