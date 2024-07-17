@@ -1,6 +1,6 @@
 package io.memorix.core.entity
 
-interface IEntity<E: Entity<E, ID>, ID> {
+interface IEntity<E: IEntity<E, ID>, ID> {
 
     var id: ID
 

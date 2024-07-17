@@ -1,9 +1,9 @@
 package io.memorix.core.service
 
-import io.memorix.core.entity.Entity
+import io.memorix.core.entity.IEntity
 import io.memorix.core.repository.IRepository
 
-interface IService<R : IRepository<E, ID>, E : Entity<E, ID>, ID : Comparable<ID>> {
+interface IService<R : IRepository<E, ID>, E : IEntity<E, ID>, ID : Comparable<ID>> {
 
     val repository: R
 

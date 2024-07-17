@@ -2,7 +2,6 @@ package io.memorix.user
 
 import io.memorix.core.repository.Repository
 import io.memorix.core.repository.ilike
-import io.memorix.core.util.hash
 import org.jetbrains.exposed.sql.*
 import java.util.*
 
@@ -27,7 +26,7 @@ class UserRepository : Repository<User, UUID>() {
         val id = UserTable.insertAndGetId {
             it[email] = entity.email
             it[name] = entity.name
-            it[password] = hash(entity.password, "SHA-256")
+            it[password] = entity.password
         }
         return findById(id.value)
     }

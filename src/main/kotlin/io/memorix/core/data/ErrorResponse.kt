@@ -19,6 +19,7 @@ data class ErrorResponse(val error: String) {
                     }
                 }
                 is BadRequestException -> ErrorResponse("Invalid request parameters")
+                is IllegalStateException -> ErrorResponse("Validation error : ${e.message}")
                 else -> ErrorResponse("Error occurred")
             }
         }

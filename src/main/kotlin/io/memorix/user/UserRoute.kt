@@ -38,7 +38,8 @@ fun Route.user() {
         post {
             try {
                 val request = call.receive<UserCreateRequest>()
-                call.respond(HttpStatusCode.Accepted, UserResponse.from(service.create(request.toUser())!!))
+                request.validate()
+                call.respond(HttpStatusCode.Accepted, UserResponse.from(service.create(request.toEntity())!!))
             } catch (e: Exception) {
                 e.printStackTrace();
                 call.respond(HttpStatusCode.BadRequest, ErrorResponse.factory(e))

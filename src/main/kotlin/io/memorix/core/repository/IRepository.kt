@@ -1,8 +1,8 @@
 package io.memorix.core.repository
 
-import io.memorix.core.entity.Entity
+import io.memorix.core.entity.IEntity
 
-interface IRepository<E: Entity<E, ID>, ID> {
+interface IRepository<E: IEntity<E, ID>, ID> {
 
     fun findAll(limit: Int = Int.MAX_VALUE): List<E>
 
